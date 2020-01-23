@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+    <head>
+        <meta http-equiv='Content-Type' content='text/html; charset="UTF-8" '/>
+      
+        <title>Calendrier</title>
+<style type='text/css'>
+<!--
+body
+{
+    font-family:     Arial,Helvetica,sans-serif;
+    font-weight:     normal;
+    font-size:     12px;
+    color:        #000000;
+}
+.title
+{
+    font-family:     Arial,Helvetica,sans-serif;
+    font-weight:     bold;
+    font-size:         14px;
+    text-indent:    20px;
+    color:            #000000;
+}
+a
+{
+    font-family:     Arial,Helvetica,sans-serif;
+    font-weight:     bold;
+    font-size:         13px;
+    color:            orange;
+    text-decoration: none;
+}
+a:hover
+{
+    text-decoration: underline;
+}
+.code
+{
+    font-family:         courier new;
+    font-weight:         bold;
+    font-size:             12px;
+    color:                #330000;
+    background-color:    #eeeeee;
+}
+.head
+{
+    font-family:     Arial,Helvetica,sans-serif;
+    font-weight:     bold;
+    font-size:     14px;
+    color:        #ff2222;
+    padding: 0px;
+}
+//-->
+</style>
+<!-- FICHIER DE STYLE DU CALENDRIER //-->
+<link rel='stylesheet' href='date.css' />
+<!-- FICHIER DE SCRIPT DU CALENDRIER //-->
+<script type="text/javascript" src="date.js"></script>
+<script type="text/javascript">
+
+
+self.defaultStatus = "GnooCalendar 1.4";
+/******************************/
+/* 
+* instanciation de l'objet
+*/
+var CL = new GnooCalendar("CL", 20, 10 );
+var CL2 = new GnooCalendar("CL2", 20, 10 );
+/******************************/
+function init()
+{
+    CL.init("calend", document.forms["testform"].elements["testestformield1"]);
+    CL.isDragable(true);
+
+    CL2.init("calend2", document.forms["testform"].elements["testestformield2"]);
+    CL2.isDragable(true);
+    CL2.setTitle("Second calendrier");
+}
+/******************************/
+//-->
+</script>
+    </head>
+<body onload="init();">
+<a name="top"></a>
+<form name='testform' method='get' action='' style='margin:0px;'>
+<span class='title'>
+       Veuillez entrer votre date
+</span>
+
+
+
+<a name="env"></a>
+
+<span class='code'>
+    <link rel='stylesheet' href='date.css' />
+    <br />
+    <script type="text/javascript" src="date.js"></script>
+</span>
+<br />
+
+
+<a name="imp"></a>
+<div class='head'>
+    
+
+<a name="exe"></a>
+
+<br />
+<table border='0'>
+    <tr>
+        <td>date selectionnée : </td>
+        <td><input type='text' name='testestformield1' onblur='alert(this.value);' value='' /></td>
+        <td><input type='button' name='a' onclick='CL.setTarget(this.form.elements["testestformield1"]);' value='cibler ce champs' /></td>
+    </tr>
+   
+    <tr>
+        <td><input type='button' name='show1' onclick='CL.show();' value='Afficher le calendrier' /></td>
+        <td><input type='button' name='hide1' onclick='CL.hide();' value='Masquer le calendrier' /></td>
+        <td></td>
+</tr>
+    
+
+    
+</table>
+
+<textarea name='debug' cols='40' rows='40' style='display: none;'></textarea>
+</form>
+<br />
+<div id="calend" style="position: absolute; top: 1500px; left: 100px; width: 190px; height: 190px; z-index: 99; border: solid 0px #000000;visibility: hidden;">
+     
+</div>
+<div id="calend2" style="position: absolute; top: 1500px; left: 250px; width: 190px; height: 190px; z-index: 99; border: solid 0px #000000;visibility: hidden;">
+     
+</div>
+</body>
+</html>
